@@ -1,0 +1,108 @@
+{
+  "token": {
+    "colorPrimary": "#1890ff",
+    "colorBgContainer": "#132B54",
+    "colorBorder": "#0D64B5",
+    "colorBorderSecondary": "#2C436B"
+  },
+  "components": {
+    "Dropdown": {
+      "colorError": "#dc4446",
+      "colorBgElevated": "#03142E"
+    },
+    "DatePicker": {
+      "colorBgElevated": "#03142E"
+    },
+    "Mentions": {
+      "colorBgElevated": "#03142E",
+      "controlItemBgHover": "rgba(255, 255, 255, 0.08)",
+      "colorBgContainerDisabled": "rgba(255, 255, 255, 0.08)",
+      "colorBgContainer": "#132B54"
+    },
+    "Select": {
+      "colorBgElevated": "#03142E",
+      "controlItemBgActive": "#1890FF",
+      "controlItemBgHover": "rgba(255, 255, 255, 0.08)",
+      "colorPrimary": "#fff",
+      "colorBgContainerDisabled": "rgba(255, 255, 255, 0.08)"
+    },
+    "Slider": {
+      "colorBgElevated": "#fff",
+      "colorBorderSecondary": "#0D64B5",
+      "colorBgContainer": "#0D64B5",
+      "colorPrimaryBorder": "#0D64B5",
+      "colorPrimaryBorderHover": "#0D64B5",
+      "borderRadiusXS": 2
+    },
+    "Popover": {
+      "colorBgElevated": "#081B3F"
+    },
+    "TreeSelect": {
+      "colorPrimaryBorder": "#03142E",
+      "colorBgElevated": "#03142E"
+    },
+    "Segmented": {
+      "colorBgLayout": "rgba(0, 0, 0, 0.25)",
+      "colorBgElevated": "#1890FF",
+      "borderRadius": 16,
+      "borderRadiusLG": 16,
+      "borderRadiusSM": 16
+    },
+    "Tooltip": {
+      "colorBgSpotlight": "#424242",
+      "colorBgDefault": "#081B3F"
+    },
+    "Menu": {
+      "colorItemText": "rgba(255, 255, 255, 0.88)",
+      "colorItemTextHover": "rgba(255, 255, 255, 1)",
+      "colorItemTextHoverHorizontal": "#1677ff",
+      "colorItemTextSelected": "#FFFFff",
+      "colorItemTextSelectedHorizontal": "#ffffff",
+      "colorBgContainer": "#1890FF",
+      "controlItemBgActive": "#1890FF",
+      "colorErrorBg": "#1890FF",
+      "colorBgElevated": "#1f1f1f",
+      "colorPrimaryBorder": "#15395b",
+      "colorText": "rgba(255, 255, 255, 0.85)"
+    },
+    "Message": {
+      "colorBgElevated": "#081B3F"
+    },
+    "Modal": {
+      "colorBgElevated": "#081B3F",
+      "colorPrimaryBorder": "#15395b"
+    },
+    "Notification": {
+      "colorBgElevated": "#081B3F"
+    },
+    "Calendar": {
+      "colorBgContainer": "#132B54",
+      "controlItemBgActive": "#081B3F"
+    },
+    "Transfer": {
+      "controlItemBgHover": "rgba(255, 255, 255, 0.10)",
+      "colorText": "rgba(255, 255, 255, 0.85)",
+      "colorTextDisabled": "rgba(255, 255, 255, 0.25)"
+    },
+    "Badge": {
+      "blue1": "#111a2c",
+      "colorBgContainer": "#ffffff",
+      "colorBorderBg": "#fff",
+      "cyan1": "#112123",
+      "colorTextLightSolid": "#fff"
+    },
+    "Cascader": {
+      "controlItemBgActive": "#1890FF"
+    },
+    "Steps": {
+      "controlItemBgActive": "rgba(24,144, 255, 0.20)",
+      "controlItemBgHover": "rgba(255, 255, 255, 0.08)",
+      "colorTextQuaternary": "rgba(255, 255, 255, 0.25)",
+      "colorPrimary": "#177ddc",
+      "colorBorderSecondary": "#2C436B",
+      "colorBorderBg": "#132B54",
+      "colorBgContainer": "#132B54",
+      "colorSplit": "rgba(198, 214, 248, 0.14)"
+    }
+  }
+}

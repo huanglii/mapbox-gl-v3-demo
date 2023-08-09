@@ -1,0 +1,11 @@
+.DS_Store
+package.json
+dist/
+.gitignore
+.prettierignore
+.DS_Store
+.editorconfig
+.eslintignore
+**/node_modules
+build
+coverage

@@ -1,0 +1,69 @@
+{
+  "name": "mapbox-gl-v3-demo",
+  "description": "Mapbox GL JS v3 示例",
+  "private": true,
+  "version": "0.1.0",
+  "author": "huangli",
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "genlog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "standard-version && git push --follow-tags",
+    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@naivemap/mapbox-gl-naive-map": "^0.2.0",
+    "ahooks": "^3.7.8",
+    "antd": "^5.8.2",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
+    "mapbox-gl": "^3.0.0-beta.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@types/mapbox-gl": "^2.7.12",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "autoprefixer": "^10.4.14",
+    "commitizen": "^4.3.0",
+    "consola": "^3.2.3",
+    "conventional-changelog-cli": "^3.0.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "git-cz": "^4.9.0",
+    "husky": "^8.0.3",
+    "less": "^4.2.0",
+    "lint-staged": "^13.2.3",
+    "postcss": "^8.4.27",
+    "standard-version": "^9.5.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,vue}": [
+      "yarn prettier",
+      "yarn lint"
+    ]
+  }
+}

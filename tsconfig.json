@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 指定 ECMAScript 版本
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ], // 要包含在编译中的依赖库文件列表
+    "allowJs": false, // 允许编译 JavaScript 文件
+    "skipLibCheck": true, // 跳过所有声明文件的类型检查
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入
+    "strict": true,
+    "forceConsistentCasingInFileNames": true, // 不允许对同一个文件使用不一致格式的引用
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true, // 允许使用 .json 扩展名导入的模块
+    "isolatedModules": true,
+    "noEmit": true, // 不输出(意思是不编译代码，只执行类型检查)
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "./src",
+    "./typings",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "extends": "./paths.json"
+}
