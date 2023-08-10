@@ -14,8 +14,10 @@ interface MapState {
   addGroupLayer: (id: string, groupLayer: GroupLayer) => void
   removeGroupLayer: (id: string, deleteSource?: boolean) => void
   removeGroupLayers: (deleteSources?: boolean) => void
+  getSource: (id: string) => mapboxgl.AnySourceImpl | undefined
   addSource: (id: string, source: mapboxgl.AnySourceData) => void
   removeSource: (id: string) => void
+  getLayer: (id: string) => mapboxgl.AnyLayer | undefined
   addLayer: (layer: mapboxgl.AnyLayer, before?: string) => void
   removeLayer: (id: string) => void
   setBasemapStyle: (
@@ -53,7 +55,13 @@ const useMapStore = create<MapState>()((set, get) => ({
       m.removeGroupLayers()
     }
   },
-  addSource(id: string, source: mapboxgl.AnySourceData) {
+  getSource(id) {
+    const m = get().map
+    if (m) {
+      return m.getSource(id)
+    }
+  },
+  addSource(id, source) {
     const m = get().map
     if (m) {
       m.addSource(id, source)
@@ -63,6 +71,12 @@ const useMapStore = create<MapState>()((set, get) => ({
     const m = get().map
     if (m) {
       m.removeSource(id)
+    }
+  },
+  getLayer(id) {
+    const m = get().map
+    if (m) {
+      return m.getLayer(id)
     }
   },
   addLayer(layer, before) {

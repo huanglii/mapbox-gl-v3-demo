@@ -35,11 +35,8 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3F5aiIsImEiOiJja3d2cXcydTYyMnY1Mm5vMmh6N3d2a2s2In0.A4I9DmsUsrdbZuMRr922MQ'
   const defaultOptions: mapboxgl.MapboxOptions = {
     container: containerId,
-    center: [104.28817, 28.48424],
-    zoom: 2,
-    // transformRequest: (url: string) => {
-    //   return { url: url.includes('api.mapbox.com') ? '' : url }
-    // },
+    center: [0, 0],
+    zoom: 1.8,
   }
   const options = Object.assign({}, defaultOptions, props.mapboxOptions)
 

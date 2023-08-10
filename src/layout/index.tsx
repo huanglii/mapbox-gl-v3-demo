@@ -1,7 +1,9 @@
 import { FC, ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
-import Sidebar from './SideBar'
 import MapboxMap from '@/components/MapboxMap'
+import Sidebar from './SideBar'
+
+import './index.less'
 
 interface LayoutProps {
   children?: ReactNode
