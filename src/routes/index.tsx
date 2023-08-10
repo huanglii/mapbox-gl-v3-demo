@@ -1,9 +1,23 @@
+import Layout from '@/layout'
 import ErrorPage from '@/components/ErrorPage'
 import NoFoundPage from '@/components/NoFoundPage'
-import Layout from '@/layout'
-import About from '@/pages/About'
-import Home from '@/pages/Home'
+import Slot from '@/pages/Slot'
+import ConfigProperty from '@/pages/ConfigProperty'
 import { createHashRouter } from 'react-router-dom'
+
+export const pages = [
+  {
+    index: true,
+    name: '配置属性',
+    path: 'config-property',
+    element: <ConfigProperty />,
+  },
+  {
+    name: '插 槽',
+    path: 'slot',
+    element: <Slot />,
+  },
+]
 
 const router = createHashRouter([
   {
@@ -11,16 +25,7 @@ const router = createHashRouter([
     path: '/',
     element: <Layout />,
     errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: 'about',
-        element: <About />,
-      },
-    ],
+    children: pages,
   },
   {
     path: '*',
