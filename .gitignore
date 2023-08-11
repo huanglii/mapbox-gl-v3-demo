@@ -9,9 +9,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # lock
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml
 
 # dependencies
 node_modules
