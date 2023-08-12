@@ -1,22 +1,28 @@
 import Layout from '@/layout'
 import ErrorPage from '@/components/ErrorPage'
 import NoFoundPage from '@/components/NoFoundPage'
-import Slot from '@/pages/Slot'
-import ConfigProperty from '@/pages/ConfigProperty'
+import Expressions from '@/pages/Expressions'
+import StandardStyle from '@/pages/StandardStyle'
 import { createHashRouter } from 'react-router-dom'
+import Taste from '@/pages/Taste'
 
 export const pages = [
   {
     index: true,
-    name: '配置属性',
-    path: 'config-property',
-    element: <ConfigProperty />,
+    name: '3D尝鲜',
+    path: '3d-taste',
+    element: <Taste />,
   },
   {
-    name: '插 槽',
-    path: 'slot',
-    element: <Slot />,
+    name: '标准样式',
+    path: 'standard-style',
+    element: <StandardStyle />,
   },
+  // {
+  //   name: '表达式',
+  //   path: 'expressions',
+  //   element: <Expressions />,
+  // },
 ]
 
 const router = createHashRouter([

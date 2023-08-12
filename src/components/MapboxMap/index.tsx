@@ -34,6 +34,7 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   const [containerId] = useState(Math.random().toString(16).substring(2))
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3F5aiIsImEiOiJja3d2cXcydTYyMnY1Mm5vMmh6N3d2a2s2In0.A4I9DmsUsrdbZuMRr922MQ'
   const defaultOptions: mapboxgl.MapboxOptions = {
+    style: './standard-beta.json',
     container: containerId,
     center: [0, 0],
     zoom: 1.8,
@@ -46,6 +47,9 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
 
     map.on('load', () => {
       setMap(map)
+      if (props.onMapLoaded) {
+        props.onMapLoaded(map)
+      }
       // 向雪碧图中添加图标
       if (props.sprites) {
         for (const imageId in props.sprites) {
@@ -56,9 +60,6 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
             if (image && !map.hasImage(imageId)) map.addImage(imageId, image)
           })
         }
-      }
-      if (props.onMapLoaded) {
-        props.onMapLoaded(map)
       }
     })
 
