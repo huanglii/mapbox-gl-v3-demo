@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl'
+import mapboxgl, { GeolocateControl, NavigationControl } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import NaiveMap from '@naivemap/mapbox-gl-naive-map'
 import React, { FC, useEffect, useRef, useState } from 'react'
@@ -34,16 +34,34 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   const [containerId] = useState(Math.random().toString(16).substring(2))
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3F5aiIsImEiOiJja3d2cXcydTYyMnY1Mm5vMmh6N3d2a2s2In0.A4I9DmsUsrdbZuMRr922MQ'
   const defaultOptions: mapboxgl.MapboxOptions = {
-    style: './standard-beta.json',
+    style: './data/standard-beta.json',
     container: containerId,
     center: [0, 0],
     zoom: 1.8,
+    locale: {
+      'NavigationControl.ResetBearing': '指北',
+      'NavigationControl.ZoomIn': '放大',
+      'NavigationControl.ZoomOut': '缩小',
+      'GeolocateControl.FindMyLocation': '定位',
+      'GeolocateControl.LocationNotAvailable': '定位不可用',
+    },
   }
   const options = Object.assign({}, defaultOptions, props.mapboxOptions)
 
   // Initialize map when component mounts
   useEffect(() => {
     const map = new NaiveMap(options)
+    map.addControl(
+      new NavigationControl({
+        visualizePitch: true,
+      })
+    )
+    map.addControl(
+      new GeolocateControl({
+        trackUserLocation: true,
+        showUserHeading: true,
+      })
+    )
 
     map.on('load', () => {
       setMap(map)

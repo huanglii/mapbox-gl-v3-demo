@@ -1,15 +1,16 @@
+import { createHashRouter } from 'react-router-dom'
 import Layout from '@/layout'
 import ErrorPage from '@/components/ErrorPage'
 import NoFoundPage from '@/components/NoFoundPage'
 import Expressions from '@/pages/Expressions'
 import StandardStyle from '@/pages/StandardStyle'
-import { createHashRouter } from 'react-router-dom'
 import Taste from '@/pages/Taste'
+import RasterColor from '@/pages/RasterColor'
 
 export const pages = [
   {
     index: true,
-    name: '3D尝鲜',
+    name: '3D 尝鲜',
     path: '3d-taste',
     element: <Taste />,
   },
@@ -18,11 +19,11 @@ export const pages = [
     path: 'standard-style',
     element: <StandardStyle />,
   },
-  // {
-  //   name: '表达式',
-  //   path: 'expressions',
-  //   element: <Expressions />,
-  // },
+  {
+    name: '栅格颜色',
+    path: 'raster-color',
+    element: <RasterColor />,
+  },
 ]
 
 const router = createHashRouter([

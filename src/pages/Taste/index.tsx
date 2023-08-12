@@ -34,6 +34,16 @@ const options = [
       pitch: 70,
     },
   },
+  {
+    id: '4',
+    title: 'New York',
+    camera: {
+      center: [-74.00825, 40.70836],
+      zoom: 14.6523,
+      bearing: 63,
+      pitch: 62,
+    },
+  },
 ]
 
 const Slot: FC = () => {

@@ -1,6 +1,6 @@
 import useMapStore from '@/components/MapboxMap/useMapStore'
 import Widget from '@/layout/Widget'
-import { Divider, Form, Radio } from 'antd'
+import { Divider, Form, Radio, Select } from 'antd'
 import { FC, useEffect } from 'react'
 
 const initialValues = {
@@ -20,7 +20,7 @@ const StandardStyle: FC = () => {
     if (map) {
       map.flyTo({
         center: [-68.137343, 45.137451],
-        zoom: 5.5,
+        zoom: 6.5,
       })
     }
     return () => {
@@ -52,7 +52,7 @@ const StandardStyle: FC = () => {
       clearLayer()
       map.addSource(id, {
         type: 'geojson',
-        data: './maine.geojson',
+        data: './data/maine.geojson',
       })
       map.addLayer({
         id: id,
@@ -110,8 +110,8 @@ const StandardStyle: FC = () => {
         </Form.Item>
         {/* <Form.Item label="字体" name="font">
           <Select mode="multiple">
-            <Select.Option value="Katakana">Katakana</Select.Option>
-            <Select.Option value="CJK Unified Ideographs">CJK Unified Ideographs</Select.Option>
+            <Select.Option value="League Mono">League Mono</Select.Option>
+            <Select.Option value="Source Code Pro">Source Code Pro</Select.Option>
           </Select>
         </Form.Item> */}
       </Form>
