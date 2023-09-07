@@ -3330,7 +3330,7 @@
         "text-padding": 1,
         "text-rotation-alignment": "map",
         "text-pitch-alignment": "viewport",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-letter-spacing": 0.15
       },
       "paint": {
@@ -3407,7 +3407,7 @@
         "text-padding": 1,
         "text-rotation-alignment": "map",
         "text-pitch-alignment": "viewport",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-letter-spacing": 0.01
       },
       "paint": {
@@ -3446,7 +3446,7 @@
       ],
       "layout": {
         "visibility": ["case", ["config", "showPointOfInterestLabels"], "visible", "none"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
         "text-size": 12
       },
@@ -3477,7 +3477,7 @@
         "text-padding": 1,
         "text-rotation-alignment": "map",
         "text-pitch-alignment": "viewport",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-letter-spacing": 0.01,
         "text-transform": "uppercase"
       },
@@ -3705,7 +3705,7 @@
         "text-size": ["interpolate", ["linear"], ["zoom"], 13, 12, 18, 18],
         "symbol-placement": "line",
         "text-pitch-alignment": "viewport",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]]
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]]
       },
       "paint": {
         "text-color": [
@@ -3748,7 +3748,7 @@
           ["step", ["get", "sizerank"], 18, 13, 12]
         ],
         "text-max-angle": 30,
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
         "symbol-placement": "line-center",
         "text-pitch-alignment": "viewport"
@@ -3831,7 +3831,7 @@
           17,
           ["step", ["get", "sizerank"], "center", 13, "top"]
         ],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]]
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]]
       },
       "paint": {
         "icon-emissive-strength": ["interpolate", ["linear"], ["measure-light", "brightness"], 0.25, 0.7, 0.5, 1],
@@ -3909,7 +3909,7 @@
         "text-font": [["concat", ["config", "font"], " Italic"], "Arial Unicode MS Regular"],
         "symbol-placement": "line-center",
         "text-pitch-alignment": "viewport",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]]
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]]
       },
       "paint": {
         "text-color": [
@@ -3965,7 +3965,7 @@
           ["*", ["-", 22, ["sqrt", ["get", "sizerank"]]], 1]
         ],
         "text-font": [["concat", ["config", "font"], " Italic"], "Arial Unicode MS Regular"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-letter-spacing": ["match", ["get", "class"], "ocean", 0.25, ["bay", "sea"], 0.15, 0.01],
         "text-max-width": ["match", ["get", "class"], "ocean", 4, "sea", 5, ["bay", "water"], 7, 10]
       },
@@ -3995,7 +3995,7 @@
       ],
       "layout": {
         "visibility": ["case", ["config", "showRoadLabels"], "visible", "none"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "icon-image": "intersection",
         "icon-text-fit": "both",
         "icon-text-fit-padding": [1, 2, 1, 2],
@@ -4291,7 +4291,7 @@
           17,
           ["step", ["number", ["get", "sizerank"]], 18, 13, 12]
         ],
-        "text-field": ["format", ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]], {}],
+        "text-field": ["format", ["coalesce", ["get", "name_local"], ["get", "name"]], {}],
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
         "text-padding": 4,
         "icon-image": [
@@ -4511,7 +4511,7 @@
             "match",
             ["get", "mode"],
             ["metro_rail", "rail"],
-            ["format", ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]], {}],
+            ["format", ["coalesce", ["get", "name_local"], ["get", "name"]], {}],
             ["format", "", {}]
           ],
           14,
@@ -4520,10 +4520,10 @@
             ["get", "mode"],
             ["bicycle", "bus"],
             ["format", "", {}],
-            ["format", ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]], {}]
+            ["format", ["coalesce", ["get", "name_local"], ["get", "name"]], {}]
           ],
           18,
-          ["format", ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]], {}]
+          ["format", ["coalesce", ["get", "name_local"], ["get", "name"]], {}]
         ],
         "text-letter-spacing": 0.01,
         "text-max-width": ["match", ["get", "stop_type"], "entrance", 15, 9]
@@ -4639,8 +4639,8 @@
           [
             "case",
             ["has", "ref"],
-            ["concat", ["get", "ref"], " -\n", ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]]],
-            ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]]
+            ["concat", ["get", "ref"], " -\n", ["coalesce", ["get", "name_local"], ["get", "name"]]],
+            ["coalesce", ["get", "name_local"], ["get", "name"]]
           ],
           15,
           ["get", "ref"]
@@ -4684,7 +4684,7 @@
       ],
       "layout": {
         "visibility": ["case", ["config", "showPlaceLabels"], "visible", "none"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-transform": "uppercase",
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
         "text-letter-spacing": ["match", ["get", "type"], "suburb", 0.15, 0.05],
@@ -4800,7 +4800,7 @@
         "text-font": [["concat", ["config", "font"], " Regular"], "Arial Unicode MS Regular"],
         "text-justify": "auto",
         "text-anchor": ["step", ["zoom"], ["get", "text_anchor"], 8, "center"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-max-width": 7
       },
       "paint": {
@@ -4924,7 +4924,7 @@
           "center"
         ],
         "text-anchor": ["step", ["zoom"], ["get", "text_anchor"], 8, "center"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-max-width": 7
       },
       "paint": {
@@ -4982,7 +4982,7 @@
         ],
         "text-transform": "uppercase",
         "text-font": [["concat", ["config", "font"], " Bold"], "Arial Unicode MS Bold"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-letter-spacing": 0.15,
         "text-max-width": 6
       },
@@ -5030,7 +5030,7 @@
       "layout": {
         "visibility": ["case", ["config", "showPlaceLabels"], "visible", "none"],
         "icon-image": "",
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-line-height": 1.1,
         "text-max-width": 6,
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
@@ -5097,7 +5097,7 @@
       ],
       "layout": {
         "visibility": ["case", ["config", "showPlaceLabels"], "visible", "none"],
-        "text-field": ["coalesce", ["get", "name_zh-Hans"], ["get", "name"]],
+        "text-field": ["coalesce", ["get", "name_local"], ["get", "name"]],
         "text-line-height": 1.1,
         "text-max-width": 6,
         "text-font": [["concat", ["config", "font"], " Medium"], "Arial Unicode MS Regular"],
