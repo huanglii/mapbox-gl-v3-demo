@@ -38,6 +38,7 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
     container: containerId,
     center: [0, 0],
     zoom: 1.8,
+    attributionControl: false,
     locale: {
       'NavigationControl.ResetBearing': '指北',
       'NavigationControl.ZoomIn': '放大',
@@ -62,6 +63,9 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
         showUserHeading: true,
       })
     )
+    map.addControl(new mapboxgl.AttributionControl({
+      customAttribution: `v${mapboxgl.version}`
+    }))
 
     map.on('load', () => {
       setMap(map)

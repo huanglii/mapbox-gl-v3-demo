@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import NaiveMap, { GroupLayer } from '@naivemap/mapbox-gl-naive-map'
 
 interface ClearOptions {
-  customStyleIds?: string[]
+  groupLayerIds?: string[]
   layerIds?: string[]
   sourceIds?: string[]
 }
@@ -108,9 +108,9 @@ const useMapStore = create<MapState>()((set, get) => ({
           m.getSource(id) && m.removeSource(id)
         }
       } else {
-        if (options.customStyleIds) {
-          for (let i = 0, len = options.customStyleIds.length; i < len; i++) {
-            m.removeGroupLayer(options.customStyleIds[i])
+        if (options.groupLayerIds) {
+          for (let i = 0, len = options.groupLayerIds.length; i < len; i++) {
+            m.removeGroupLayer(options.groupLayerIds[i])
           }
         }
         if (options.layerIds) {

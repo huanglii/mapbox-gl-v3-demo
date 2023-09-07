@@ -14,7 +14,7 @@ const initialValues = {
 const id = 'maine'
 
 const StandardStyle: FC = () => {
-  const { map } = useMapStore()
+  const { map, addGroupLayer, removeGroupLayers } = useMapStore()
 
   useEffect(() => {
     if (map) {
@@ -24,13 +24,7 @@ const StandardStyle: FC = () => {
       })
     }
     return () => {
-      if (map) {
-        Object.keys(initialValues).map((key) => {
-          // @ts-ignore
-          map.setConfigProperty('basemap', key, initialValues[key])
-        })
-        clearLayer()
-      }
+      removeGroupLayers()
     }
   }, [map])
 
@@ -40,32 +34,29 @@ const StandardStyle: FC = () => {
     map?.setConfigProperty('basemap', key, changedValues[key])
   }
 
-  const clearLayer = () => {
-    if (map) {
-      map.getLayer(id) && map.removeLayer(id)
-      map.getSource(id) && map.removeSource(id)
-    }
-  }
-
   const onAddLayer = (slot: string) => {
-    if (map) {
-      clearLayer()
-      map.addSource(id, {
-        type: 'geojson',
-        data: './data/maine.geojson',
-      })
-      map.addLayer({
-        id: id,
-        // @ts-ignore
-        slot: slot,
-        source: id,
-        type: 'fill',
-        paint: {
-          'fill-color': '#0080ff', // blue color fill
-          'fill-opacity': 0.5,
+    removeGroupLayers()
+    addGroupLayer(id, {
+      sources: {
+        [id]: {
+          type: 'geojson',
+          data: './data/maine.geojson',
         },
-      })
-    }
+      },
+      layers: [
+        {
+          id: id,
+          // @ts-ignore
+          slot: slot,
+          source: id,
+          type: 'fill',
+          paint: {
+            'fill-color': '#0080ff', // blue color fill
+            'fill-opacity': 0.5,
+          },
+        },
+      ],
+    })
   }
 
   return (
