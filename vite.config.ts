@@ -13,7 +13,7 @@ export default defineConfig({
       minify: true,
       inject: {
         data: {
-          injectScript: '<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.js"></script>',
+          injectScript: '<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.5/mapbox-gl.js"></script>',
         },
       },
     }),
