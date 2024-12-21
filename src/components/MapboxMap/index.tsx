@@ -32,7 +32,7 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   const { setMap, removeMap } = useMapStore()
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerId] = useState(Math.random().toString(16).substring(2))
-  mapboxgl.accessToken = 'pk.eyJ1IjoiY3F5aiIsImEiOiJja3d2cXcydTYyMnY1Mm5vMmh6N3d2a2s2In0.A4I9DmsUsrdbZuMRr922MQ'
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaHVhbmdsaWkiLCJhIjoiY2wwM2E4a2drMDVrZjNrcGRucHIxOHo0cyJ9.0ecG5KGQE6R-SmhxvLvhHg'
   const defaultOptions: mapboxgl.MapboxOptions = {
     style: './data/standard-beta.json',
     container: containerId,
@@ -68,6 +68,15 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
         customAttribution: `v${mapboxgl.version}`,
       })
     )
+
+    map.loadImage('./i-marker.png', (error, image) => {
+      if (error) throw error
+      if (image && !map.hasImage('marker')) map.addImage('marker', image, { sdf: true })
+    })
+    map.loadImage('./i-arrow.png', (error, image) => {
+      if (error) throw error
+      if (image && !map.hasImage('arrow')) map.addImage('arrow', image, { sdf: true })
+    })
 
     map.on('load', () => {
       setMap(map)

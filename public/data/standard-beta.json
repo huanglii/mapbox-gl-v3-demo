@@ -234,7 +234,7 @@
       }
     },
     "lightPreset": {
-      "default": "night",
+      "default": "day",
       "type": "string",
       "values": ["dawn", "day", "dusk", "night"],
       "metadata": {

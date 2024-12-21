@@ -1,11 +1,11 @@
-import { createHashRouter } from 'react-router-dom'
-import Layout from '@/layout'
 import ErrorPage from '@/components/ErrorPage'
 import NoFoundPage from '@/components/NoFoundPage'
-import Expressions from '@/pages/Expressions'
+import Layout from '@/layout'
+import LowAltitude from '@/pages/LowAltitude'
+import RasterColor from '@/pages/RasterColor'
 import StandardStyle from '@/pages/StandardStyle'
 import Taste from '@/pages/Taste'
-import RasterColor from '@/pages/RasterColor'
+import { createHashRouter } from 'react-router-dom'
 
 export const pages = [
   {
@@ -23,6 +23,11 @@ export const pages = [
     name: '栅格颜色',
     path: 'raster-color',
     element: <RasterColor />,
+  },
+  {
+    name: '低空模拟',
+    path: 'low-altitude',
+    element: <LowAltitude />,
   },
 ]
 
