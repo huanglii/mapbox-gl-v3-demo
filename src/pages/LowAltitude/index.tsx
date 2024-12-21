@@ -205,7 +205,7 @@ const LowAltitude: FC = () => {
     if (map?.getLayer('wind-layer')) {
       map.removeLayer('wind-layer')
     } else {
-      fetch('/data/wind.json')
+      fetch('./data/wind.json')
         .then((res) => res.json())
         .then((data) => {
           const layer = new WindFieldLayer('wind-layer', data, {
