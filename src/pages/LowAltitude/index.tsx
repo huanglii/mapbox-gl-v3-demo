@@ -75,7 +75,11 @@ const LowAltitude: FC = () => {
           source: 'building',
           'source-layer': 'building_footprint_cq',
           minzoom: 14,
-          layout: { 'fill-extrusion-edge-radius': 1, visibility: 'visible' },
+          layout: {
+            // @ts-ignore
+            'fill-extrusion-edge-radius': 1,
+            visibility: 'visible',
+          },
           paint: {
             'fill-extrusion-ambient-occlusion-intensity': 0.15,
             'fill-extrusion-color': 'hsl(23, 100%, 97%)',
@@ -300,6 +304,7 @@ const LowAltitude: FC = () => {
           source: 'test',
           'source-layer': 'la_grid-49kui3',
           layout: {
+            // @ts-ignore
             'fill-extrusion-edge-radius': 1,
           },
           paint: {

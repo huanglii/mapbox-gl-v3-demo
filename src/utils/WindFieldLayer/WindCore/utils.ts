@@ -151,9 +151,7 @@ export function formatData(data: IGFSItem[], options: Partial<IField> = {}) {
   let uComp: IGFSItem = undefined as unknown as IGFSItem
   let vComp: IGFSItem = undefined as unknown as IGFSItem
 
-  if ((process.env.NODE_ENV as string) === ('development' as string)) {
-    console.time('format-data')
-  }
+  console.time('format-data')
 
   data.forEach(function (record: IGFSItem) {
     switch (record.header.parameterCategory + ',' + record.header.parameterNumber) {
@@ -187,9 +185,7 @@ export function formatData(data: IGFSItem[], options: Partial<IField> = {}) {
     ...options,
   })
 
-  if ((process.env.NODE_ENV as string) === ('development' as string)) {
-    console.timeEnd('format-data')
-  }
+  console.timeEnd('format-data')
 
   return vectorField
 }
