@@ -9,15 +9,15 @@ import RasterColor from '@/pages/RasterColor'
 
 export const pages = [
   {
-    index: true,
-    name: '3D 尝鲜',
-    path: '3d-taste',
-    element: <Taste />,
-  },
-  {
     name: '标准样式',
     path: 'standard-style',
     element: <StandardStyle />,
+  },
+  {
+    index: true,
+    name: '建筑模型',
+    path: '3d-taste',
+    element: <Taste />,
   },
   {
     name: '栅格颜色',

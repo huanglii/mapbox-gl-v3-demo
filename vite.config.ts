@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'path'
-import { defineConfig } from 'vite'
 import externalGlobals from 'rollup-plugin-external-globals'
+import { defineConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 
 // https://vitejs.dev/config/
@@ -9,14 +9,14 @@ export default defineConfig({
   base: './',
   plugins: [
     react(),
-    createHtmlPlugin({
-      minify: true,
-      inject: {
-        data: {
-          injectScript: '<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.5/mapbox-gl.js"></script>',
-        },
-      },
-    }),
+    // createHtmlPlugin({
+    //   minify: true,
+    //   inject: {
+    //     data: {
+    //       injectScript: '<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>',
+    //     },
+    //   },
+    // }),
   ],
   // 路径别名
   resolve: {
