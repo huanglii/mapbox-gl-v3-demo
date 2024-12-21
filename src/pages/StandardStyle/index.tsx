@@ -1,6 +1,6 @@
 import useMapStore from '@/components/MapboxMap/useMapStore'
 import Widget from '@/layout/Widget'
-import { Divider, Form, Radio, Select } from 'antd'
+import { Divider, Form, Radio } from 'antd'
 import { FC, useEffect } from 'react'
 
 const initialValues = {
