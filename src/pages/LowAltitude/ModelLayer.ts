@@ -24,14 +24,15 @@ class ModelLayer implements mapboxgl.CustomLayerInterface {
       type: 'gltf',
       // obj: './models/drone_fab_v1_fbx/drone_fab_fbx_v1.Fbx',
       // type: 'fbx',
-      // scale: { x: scale, y: scale, z: scale },
+      scale: { x: scale, y: scale, z: scale },
       units: 'meters',
       rotation: { x: 90, y: 0, z: 0 },
     }
 
     tb.loadObj(options, (model: any) => {
       model.setCoords(this.coordinate)
-      model.setRotation({ x: 0, y: 0, z: 120 })
+      // model.setAnchor('center')
+      model.setRotation({ x: 0, y: 0, z: 121.32693805664039 })
       tb.add(model)
       this.model = model
     })
@@ -50,8 +51,11 @@ class ModelLayer implements mapboxgl.CustomLayerInterface {
     this.tb.update()
   }
 
-  flyTo(coords: Coordinate) {
+  flyTo(coords: Coordinate, rotationZ?: number) {
     this.model.setCoords(coords)
+    if (rotationZ) {
+      this.model.setRotation({ x: 0, y: 0, z: rotationZ })
+    }
     // this.tb.update()
   }
 }

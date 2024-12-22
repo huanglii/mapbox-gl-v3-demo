@@ -324,16 +324,20 @@ const LowAltitude: FC = () => {
 
       if (delta > 100 && i < routeLine.length) {
         prevTimestamp = timestamp
-        console.log('animate')
         const coords = routeLine[i]
-        modelLayer.flyTo([coords[0], coords[1], 240])
+        const bearing = -turf.bearing(routeLine[i - 1], coords)
+
+        modelLayer.flyTo([coords[0], coords[1], 250], bearing)
+        map?.flyTo({
+          center: [coords[0], coords[1]],
+        })
         i++
       }
       requestAnimationFrame(animate)
     }
 
     setTimeout(() => {
-      animate(0)
+      // animate(0)
     }, 1000)
 
     // setTimeout(() => {
