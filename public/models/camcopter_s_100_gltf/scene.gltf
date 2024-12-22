@@ -1,0 +1,485 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4510,
+      "max": [
+        1.123955249786377,
+        1.037516713142395,
+        2.5708422660827637
+      ],
+      "min": [
+        -1.123955249786377,
+        -1.037516713142395,
+        -2.5708422660827637
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 54120,
+      "componentType": 5126,
+      "count": 4510,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4510,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 15369,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 108240,
+      "componentType": 5126,
+      "count": 1207,
+      "max": [
+        0.03952290117740631,
+        0.4278745949268341,
+        0.0348680354654789
+      ],
+      "min": [
+        -0.039522890001535416,
+        -0.4278745651245117,
+        -0.03486798703670502
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 122724,
+      "componentType": 5126,
+      "count": 1207,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 36080,
+      "componentType": 5126,
+      "count": 1207,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 61476,
+      "componentType": 5125,
+      "count": 3534,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 137208,
+      "componentType": 5126,
+      "count": 782,
+      "max": [
+        2.499704360961914,
+        0.045373495668172836,
+        0.15132980048656464
+      ],
+      "min": [
+        -2.499704599380493,
+        -0.04537341371178627,
+        -0.1513298749923706
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 146592,
+      "componentType": 5126,
+      "count": 782,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 45736,
+      "componentType": 5126,
+      "count": 782,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 75612,
+      "componentType": 5125,
+      "count": 2484,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 40,
+      "max": [
+        0.9666666388511658
+      ],
+      "min": [
+        0.0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 40,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 4,
+      "byteOffset": 160,
+      "componentType": 5126,
+      "count": 40,
+      "max": [
+        0.9666666388511658
+      ],
+      "min": [
+        0.0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 640,
+      "componentType": 5126,
+      "count": 40,
+      "type": "VEC4"
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 6,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 8,
+            "path": "rotation"
+          }
+        }
+      ],
+      "name": "Take 001",
+      "samplers": [
+        {
+          "input": 12,
+          "interpolation": "LINEAR",
+          "output": 13
+        },
+        {
+          "input": 14,
+          "interpolation": "LINEAR",
+          "output": 15
+        }
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "fab-model-conversion",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 85548,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 51992,
+      "byteOffset": 85548,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 155976,
+      "byteOffset": 137540,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1280,
+      "byteOffset": 293516
+    },
+    {
+      "buffer": 0,
+      "byteLength": 320,
+      "byteOffset": 294796
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 295116,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/camcopters100_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 0.0
+        }
+      },
+      "name": "camcopters100",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "camcopters100_camcopters100_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "propellar_back_camcopters100_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "propellar_top_camcopters100_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "camcopters100.FBX"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "Object_2"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "children": [
+        5,
+        6,
+        8
+      ],
+      "name": "camcopters100",
+      "rotation": [
+        2.1855694143368964e-08,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        26.092182159423828,
+        26.092182159423828,
+        26.092182159423828
+      ],
+      "translation": [
+        -1.4250977039337158,
+        -7.816918849945068,
+        15.069748878479004
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "camcopters100_camcopters100_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "propellar_back",
+      "rotation": [
+        -1.7763568394002505e-15,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "translation": [
+        0.15156295895576477,
+        0.03323972225189209,
+        -2.491565704345703
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "propellar_back_camcopters100_0"
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "propellar_top",
+      "rotation": [
+        -1.7763568394002505e-15,
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "translation": [
+        0.012479167431592941,
+        0.8665147423744202,
+        0.7568974494934082
+      ]
+    },
+    {
+      "mesh": 2,
+      "name": "propellar_top_camcopters100_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

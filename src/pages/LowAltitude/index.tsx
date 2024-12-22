@@ -1,8 +1,10 @@
 import useMapStore from '@/components/MapboxMap/useMapStore'
 import Widget from '@/layout/Widget'
 import WindFieldLayer from '@/utils/WindFieldLayer'
-import { Button, Checkbox, CheckboxProps, Divider, Form, Radio, Select, Space } from 'antd'
+import { Button, Checkbox, CheckboxProps, Divider, Form, Radio, Space } from 'antd'
 import { FC, useEffect } from 'react'
+import * as turf from '@turf/turf'
+import ModelLayer from './ModelLayer'
 
 const initialValues = {
   showPlaceLabels: true,
@@ -271,6 +273,74 @@ const LowAltitude: FC = () => {
     ])
   }
 
+  const onFly = async () => {
+    if (!map) return
+
+    const route = await fetch('./data/la_route.geojson').then((res) => res.json())
+
+    const routeLine = route.features[0].geometry.coordinates
+    map.getLayer('model_layer') && map.removeLayer('model_layer')
+    // @ts-ignore
+    const modelLayer = new ModelLayer('model_layer', [routeLine[0][0], routeLine[0][1], 240])
+    map.addLayer(modelLayer)
+
+    map.flyTo({
+      center: [106.58079, 29.56389],
+      zoom: 15.4,
+      bearing: -119.4,
+      pitch: 67,
+    })
+
+    map.removeGroupLayer('line_layer')
+    map.addGroupLayer('line_layer', {
+      sources: {
+        'line-buffer': {
+          type: 'geojson',
+          data: './data/la_line_buffer.geojson',
+        },
+      },
+      layers: [
+        {
+          id: 'line-layer',
+          type: 'fill-extrusion',
+          source: 'line-buffer',
+          filter: ['==', ['get', 'fid'], 2],
+          paint: {
+            'fill-extrusion-height': 240,
+            'fill-extrusion-base': 200,
+            'fill-extrusion-color': 'rgb(0, 172, 235)',
+            'fill-extrusion-opacity': 0.5,
+            'fill-extrusion-emissive-strength': 1,
+          },
+        },
+      ],
+    })
+
+    let i = 1
+    let prevTimestamp: number
+    function animate(timestamp: number) {
+      if (!prevTimestamp) prevTimestamp = timestamp
+      const delta = timestamp - prevTimestamp
+
+      if (delta > 100 && i < routeLine.length) {
+        prevTimestamp = timestamp
+        console.log('animate')
+        const coords = routeLine[i]
+        modelLayer.flyTo([coords[0], coords[1], 240])
+        i++
+      }
+      requestAnimationFrame(animate)
+    }
+
+    setTimeout(() => {
+      animate(0)
+    }, 1000)
+
+    // setTimeout(() => {
+    //   modelLayer.flyTo([106.569747, 29.56365, 240])
+    // }, 1000);
+  }
+
   const onReset = () => {
     if (map) {
       map.flyTo({
@@ -386,7 +456,7 @@ const LowAltitude: FC = () => {
       </Form>
       <Form labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
         <Form.Item label="路径规划">
-          <Space size={5}>
+          <Space size={5} wrap>
             <Button type="primary" size="small" onClick={onAddAreaLayer}>
               飞行区域
             </Button>
@@ -395,6 +465,9 @@ const LowAltitude: FC = () => {
             </Button>
             <Button type="primary" size="small" onClick={onAddRiskLayer}>
               天气风险
+            </Button>
+            <Button type="primary" size="small" onClick={onFly}>
+              飞行模拟
             </Button>
             <Button size="small" onClick={onReset}>
               重置

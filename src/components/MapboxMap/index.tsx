@@ -35,6 +35,7 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   mapboxgl.accessToken = 'pk.eyJ1IjoiaHVhbmdsaWkiLCJhIjoiY2wwM2E4a2drMDVrZjNrcGRucHIxOHo0cyJ9.0ecG5KGQE6R-SmhxvLvhHg'
   const defaultOptions: mapboxgl.MapboxOptions = {
     style: './data/standard-beta.json',
+    // style: 'mapbox://styles/huanglii/cm4xxuwxu007p01srd6bmbb80',
     container: containerId,
     center: [106.576247, 29.56087], // starting position [lng, lat]
     zoom: 9, // starting zoom
