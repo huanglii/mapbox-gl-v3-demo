@@ -285,14 +285,15 @@ const LowAltitude: FC = () => {
     map.addLayer(modelLayer)
 
     map.flyTo({
-      center: [106.58079, 29.56389],
-      zoom: 15.4,
-      bearing: -119.4,
-      pitch: 67,
+      center: [106.56947826952432, 29.56169927621542],
+      zoom: 15.836678368356985,
+      bearing: -105.86787244692664,
+      pitch: 74.77230561646142,
+      duration: 2000,
     })
 
-    map.removeGroupLayer('line_layer')
-    map.addGroupLayer('line_layer', {
+    map.removeGroupLayer('fly_layer')
+    map.addGroupLayer('fly_layer', {
       sources: {
         'line-buffer': {
           type: 'geojson',
@@ -300,6 +301,65 @@ const LowAltitude: FC = () => {
         },
       },
       layers: [
+        {
+          id: 'grid-extra-layer',
+          type: 'fill-extrusion',
+          source: 'grid',
+          'source-layer': 'la_grid-49kui3',
+          filter: ['!=', ['get', 'risk'], 0],
+          paint: {
+            'fill-extrusion-height': 240,
+            'fill-extrusion-base': 200,
+            'fill-extrusion-color': [
+              'match',
+              ['get', 'risk'],
+              0,
+              'rgba(17, 172, 125, 0.1)',
+              [1],
+              'rgba(247, 196, 94, 1)',
+              [2],
+              'rgba(250, 10, 10, 1)',
+              'rgba(100, 102, 115, 0.1)',
+            ],
+            'fill-extrusion-opacity': 0.5,
+            'fill-extrusion-emissive-strength': 1,
+          },
+        },
+        {
+          id: 'grid-layer',
+          type: 'fill',
+          source: 'grid',
+          'source-layer': 'la_grid-49kui3',
+          paint: {
+            'fill-z-offset': 200,
+            'fill-emissive-strength': 1,
+            'fill-color': [
+              'match',
+              ['get', 'risk'],
+              0,
+              'rgba(17, 172, 125, 0.1)',
+              [1],
+              'rgba(247, 196, 94, 0.5)',
+              [2],
+              'rgba(250, 10, 10, 0.5)',
+              'rgba(100, 102, 115, 0.1)',
+            ],
+            'fill-outline-color': 'rgba(255, 255, 255, 0.25)',
+          },
+        },
+        {
+          id: 'grid-outline-layer',
+          type: 'line',
+          source: 'grid',
+          'source-layer': 'la_grid-49kui3',
+          layout: {
+            'line-z-offset': 200,
+          },
+          paint: {
+            'line-emissive-strength': 1,
+            'line-color': 'hsla(0, 0%, 73%, 0.39)',
+          },
+        },
         {
           id: 'line-layer',
           type: 'fill-extrusion',
@@ -318,27 +378,50 @@ const LowAltitude: FC = () => {
 
     let i = 1
     let prevTimestamp: number
+    let prevBearing = 121.32693805664039
+    let raf: number
     function animate(timestamp: number) {
       if (!prevTimestamp) prevTimestamp = timestamp
       const delta = timestamp - prevTimestamp
 
-      if (delta > 100 && i < routeLine.length) {
+      if (i >= routeLine.length) {
+        cancelAnimationFrame(raf)
+        return
+      }
+
+      if (delta > 30) {
         prevTimestamp = timestamp
-        console.log('animate')
-        const coords = routeLine[i]
-        modelLayer.flyTo([coords[0], coords[1], 240])
+
+        const start = routeLine[i - 1]
+        const end = routeLine[i]
+        const line = turf.lineString([start, end])
+        const lineDistance = turf.length(line)
+        const steps = 100
+        const bearing = -turf.bearing(start, end)
+        // 对该线段再细分
+        for (let i = 0; i < lineDistance; i += lineDistance / steps) {
+          const segment = turf.along(line, i)
+          const coords = segment.geometry.coordinates
+
+          const rotateZ = Math.abs(bearing - prevBearing) > 5 ? bearing : undefined
+          modelLayer.flyTo([coords[0], coords[1], 250], rotateZ)
+          prevBearing = bearing
+        }
+
+        if (i === routeLine.length - 100) {
+          map?.flyTo({
+            center: [106.54457026080405, 29.567590988995747],
+            duration: 7500,
+          })
+        }
         i++
       }
-      requestAnimationFrame(animate)
+      raf = requestAnimationFrame(animate)
     }
 
     setTimeout(() => {
       animate(0)
     }, 1000)
-
-    // setTimeout(() => {
-    //   modelLayer.flyTo([106.569747, 29.56365, 240])
-    // }, 1000);
   }
 
   const onReset = () => {
@@ -353,6 +436,9 @@ const LowAltitude: FC = () => {
       map.setLayoutProperty('line', 'visibility', 'none')
       map.setLayoutProperty('line-arrow', 'visibility', 'none')
       map.setLayoutProperty('point', 'visibility', 'none')
+
+      map.getLayer('model_layer') && map.removeLayer('model_layer')
+      map.removeGroupLayer('fly_layer')
     }
   }
 
