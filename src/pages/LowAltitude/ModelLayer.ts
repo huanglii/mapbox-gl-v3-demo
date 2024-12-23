@@ -24,6 +24,7 @@ class ModelLayer implements mapboxgl.CustomLayerInterface {
       type: 'gltf',
       // obj: './models/drone_fab_v1_fbx/drone_fab_fbx_v1.Fbx',
       // type: 'fbx',
+      anchor: 'center',
       scale: { x: scale, y: scale, z: scale },
       units: 'meters',
       rotation: { x: 90, y: 0, z: 0 },
@@ -32,6 +33,8 @@ class ModelLayer implements mapboxgl.CustomLayerInterface {
     tb.loadObj(options, (model: any) => {
       model.setCoords(this.coordinate)
       // model.setAnchor('center')
+      // model.translateX(0.4)
+      // model.translateY(1.3)
       model.setRotation({ x: 0, y: 0, z: 121.32693805664039 })
       tb.add(model)
       this.model = model
