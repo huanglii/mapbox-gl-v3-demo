@@ -18,7 +18,7 @@ class ModelLayer implements mapboxgl.CustomLayerInterface {
   onAdd(map: mapboxgl.Map, gl: WebGL2RenderingContext) {
     const tb = new Threebox(map, gl, { defaultLights: true })
 
-    const scale = 0.5
+    const scale = 0.4
     const options = {
       obj: './models/camcopter_s_100_gltf/scene.gltf',
       type: 'gltf',

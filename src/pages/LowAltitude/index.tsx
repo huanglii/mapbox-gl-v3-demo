@@ -276,12 +276,17 @@ const LowAltitude: FC = () => {
   const onFly = async () => {
     if (!map) return
 
+    map.setLayoutProperty('grid', 'visibility', 'none')
+    map.setLayoutProperty('line', 'visibility', 'none')
+    map.setLayoutProperty('line-arrow', 'visibility', 'none')
+    map.setLayoutProperty('point', 'visibility', 'none')
+
     const route = await fetch('./data/la_route.geojson').then((res) => res.json())
 
     const routeLine = route.features[0].geometry.coordinates
     map.getLayer('model_layer') && map.removeLayer('model_layer')
     // @ts-ignore
-    const modelLayer = new ModelLayer('model_layer', [routeLine[0][0], routeLine[0][1], 240])
+    const modelLayer = new ModelLayer('model_layer', [routeLine[0][0], routeLine[0][1], 210])
     map.addLayer(modelLayer)
 
     map.flyTo({
@@ -389,7 +394,7 @@ const LowAltitude: FC = () => {
         return
       }
 
-      if (delta > 30) {
+      if (delta > 60) {
         prevTimestamp = timestamp
 
         const start = routeLine[i - 1]
@@ -404,14 +409,14 @@ const LowAltitude: FC = () => {
           const coords = segment.geometry.coordinates
 
           const rotateZ = Math.abs(bearing - prevBearing) > 5 ? bearing : undefined
-          modelLayer.flyTo([coords[0], coords[1], 250], rotateZ)
+          modelLayer.flyTo([coords[0], coords[1], 210], rotateZ)
           prevBearing = bearing
         }
 
         if (i === routeLine.length - 100) {
           map?.flyTo({
             center: [106.54457026080405, 29.567590988995747],
-            duration: 7500,
+            duration: 10000,
           })
         }
         i++
