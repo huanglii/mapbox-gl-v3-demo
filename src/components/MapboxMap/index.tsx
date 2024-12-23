@@ -32,8 +32,8 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   const { setMap, removeMap } = useMapStore()
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerId] = useState(Math.random().toString(16).substring(2))
-  mapboxgl.accessToken = 'pk.eyJ1IjoiaHVhbmdsaWkiLCJhIjoiY2wwM2E4a2drMDVrZjNrcGRucHIxOHo0cyJ9.0ecG5KGQE6R-SmhxvLvhHg'
-  const defaultOptions: mapboxgl.MapboxOptions = {
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaHVhbmdsaWkiLCJhIjoiY201MHQ3eXRuMWY3dDJrcXZsMTNoYXE2cCJ9.WBA9MWTHiAh2TTVnLjzboQ'
+  const defaultOptions: mapboxgl.MapOptions = {
     style: './data/standard-beta.json',
     // style: 'mapbox://styles/huanglii/cm4xxuwxu007p01srd6bmbb80',
     container: containerId,
