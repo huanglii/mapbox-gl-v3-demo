@@ -53,22 +53,22 @@ const MapboxMap: FC<MapboxMapProps> = (props) => {
   // Initialize map when component mounts
   useEffect(() => {
     const map = new NaiveMap(options)
-    map.addControl(
-      new NavigationControl({
-        visualizePitch: true,
-      })
-    )
-    map.addControl(
-      new GeolocateControl({
-        trackUserLocation: true,
-        showUserHeading: true,
-      })
-    )
-    map.addControl(
-      new mapboxgl.AttributionControl({
-        customAttribution: `v${mapboxgl.version}`,
-      })
-    )
+    // map.addControl(
+    //   new NavigationControl({
+    //     visualizePitch: true,
+    //   })
+    // )
+    // map.addControl(
+    //   new GeolocateControl({
+    //     trackUserLocation: true,
+    //     showUserHeading: true,
+    //   })
+    // )
+    // map.addControl(
+    //   new mapboxgl.AttributionControl({
+    //     customAttribution: `v${mapboxgl.version}`,
+    //   })
+    // )
 
     map.loadImage('./i-marker.png', (error, image) => {
       if (error) throw error
