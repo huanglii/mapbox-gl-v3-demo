@@ -374,7 +374,7 @@ const LowAltitude: FC = () => {
             'fill-extrusion-height': 240,
             'fill-extrusion-base': 200,
             'fill-extrusion-color': 'rgb(0, 172, 235)',
-            'fill-extrusion-opacity': 0.5,
+            'fill-extrusion-opacity': 0.25,
             'fill-extrusion-emissive-strength': 1,
           },
         },
@@ -445,49 +445,6 @@ const LowAltitude: FC = () => {
       map.getLayer('model_layer') && map.removeLayer('model_layer')
       map.removeGroupLayer('fly_layer')
     }
-  }
-
-  const onAddTestLayer = () => {
-    const id = 'test'
-    removeGroupLayer(id)
-
-    addGroupLayer(id, {
-      sources: {
-        test: {
-          type: 'vector',
-          url: 'mapbox://huanglii.30eo9eac',
-        },
-      },
-      layers: [
-        {
-          id: 'test',
-          type: 'fill-extrusion',
-          source: 'test',
-          'source-layer': 'la_grid-49kui3',
-          layout: {
-            // @ts-ignore
-            'fill-extrusion-edge-radius': 1,
-          },
-          paint: {
-            'fill-extrusion-emissive-strength': 1,
-            'fill-extrusion-opacity': 0.5,
-            'fill-extrusion-color': [
-              'match',
-              ['get', 'risk'],
-              0,
-              'rgba(17, 172, 125, 0.72)',
-              [1],
-              'rgba(247, 196, 94, 0.49)',
-              [2],
-              'rgba(250, 10, 10, 0.49)',
-              'rgba(100, 102, 115, 0.49)',
-            ],
-            'fill-extrusion-height': 500,
-            'fill-extrusion-base': 400,
-          },
-        },
-      ],
-    })
   }
 
   return (
