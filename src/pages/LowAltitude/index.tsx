@@ -394,7 +394,7 @@ const LowAltitude: FC = () => {
         return
       }
 
-      if (delta > 60) {
+      if (delta > 30) {
         prevTimestamp = timestamp
 
         const start = routeLine[i - 1]
@@ -416,7 +416,7 @@ const LowAltitude: FC = () => {
         if (i === routeLine.length - 100) {
           map?.flyTo({
             center: [106.54457026080405, 29.567590988995747],
-            duration: 10000,
+            duration: 7500,
           })
         }
         i++
