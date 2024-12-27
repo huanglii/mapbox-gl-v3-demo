@@ -448,15 +448,55 @@ const LowAltitude: FC = () => {
   }
 
   return (
-    <Widget className="w-[340px]">
-      <Form labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+    <Widget className="w-[405px]">
+      <Form
+        initialValues={initialValues}
+        labelCol={{ span: 5 }}
+        wrapperCol={{ span: 19 }}
+        onValuesChange={onValuesChange}
+      >
+        <Form.Item label="地名注记" name="showPlaceLabels">
+          <Radio.Group>
+            <Radio value={true}>开启</Radio>
+            <Radio value={false}>关闭</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="道路注记" name="showRoadLabels">
+          <Radio.Group>
+            <Radio value={true}>开启</Radio>
+            <Radio value={false}>关闭</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="POI 注记" name="showPointOfInterestLabels">
+          <Radio.Group>
+            <Radio value={true}>开启</Radio>
+            <Radio value={false}>关闭</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="交通注记" name="showTransitLabels">
+          <Radio.Group>
+            <Radio value={true}>开启</Radio>
+            <Radio value={false}>关闭</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="预设灯光" name="lightPreset">
+          <Radio.Group>
+            <Radio value="day">白天</Radio>
+            <Radio value="night">晚上</Radio>
+            <Radio value="dusk">黄昏</Radio>
+            <Radio value="dawn">黎明</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+      <Divider style={{ margin: '6px 0' }} />
+      <Form labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
         <Form.Item label="气象要素">
           <Space>
             <Checkbox onChange={onCheckWindLayer}>风场</Checkbox>
           </Space>
         </Form.Item>
       </Form>
-      <Form labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+      <Form labelCol={{ span: 5 }} wrapperCol={{ span: 19 }}>
         <Form.Item label="路径规划">
           <Space size={5} wrap>
             <Button className="btn" type="primary" size="small" onClick={onAddAreaLayer}>
